@@ -46,7 +46,7 @@
       var $ul = that.element.find("li[data-path='"+path+"'] > ul");
       var html = '';
       $.each( {folders: false, files: true}, function(k,v) {
-        if (f_contents.hasOwnProperty(k)) html += $.map(f_contents[k], function(name){ return that._branchLi(path+'/'+name, v); }).join('');
+        if (f_contents.hasOwnProperty(k)) html += $.map(f_contents[k].sort(), function(name){ return that._branchLi(path+'/'+name, v); }).join('');
       });
       $ul.removeClass('loading');
       $ul.html(html);
