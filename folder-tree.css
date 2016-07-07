@@ -31,7 +31,7 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   color: #1a8dc7; /* light blue */
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 .folder-list li.folder:not(.expanded):before {
@@ -40,10 +40,27 @@
 
 .folder-list li.folder.expanded:before {
   content: "\e118"; /* glyphicon-folder-open */
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .folder-list li.file:before {
   content: "\e022"; /* glyphicon-file */
   color: #cecece; /* light gray */
+}
+
+.folder-list li.no-contents,
+.folder-list ul.loading > li {
+  color: gray;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.folder-list li > .basename {
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+.folder-list li.file.selected > .basename {
+  color: white;
+  background-color: #1a8dc7;
 }

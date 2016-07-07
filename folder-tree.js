@@ -11,6 +11,8 @@
       that.element.on('click', '.basename', function(event) {
         var $li = $(this).parent();
         if ($li.hasClass('file')) {
+          that.element.find('li.selected').removeClass('selected');
+          $li.addClass('selected');
           that._trigger('file_click', event, {path: $li.data('path')});
         } else if ($li.hasClass('folder')) {
           $li.toggleClass('expanded');
@@ -48,7 +50,7 @@
       $.each( {folders: false, files: true}, function(k,v) {
         if (f_contents.hasOwnProperty(k)) html += $.map(f_contents[k].sort(), function(name){ return that._branchLi(path+'/'+name, v); }).join('');
       });
-      if (html == '') html = '<li>No contents.</li>';
+      if (html == '') html = "<li class='no-contents'>No contents.</li>";
       $ul.removeClass('loading');
       $ul.html(html);
     }
