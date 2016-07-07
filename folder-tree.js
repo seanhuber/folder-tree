@@ -48,6 +48,7 @@
       $.each( {folders: false, files: true}, function(k,v) {
         if (f_contents.hasOwnProperty(k)) html += $.map(f_contents[k].sort(), function(name){ return that._branchLi(path+'/'+name, v); }).join('');
       });
+      if (html == '') html = '<li>No contents.</li>';
       $ul.removeClass('loading');
       $ul.html(html);
     }
