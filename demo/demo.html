@@ -27,31 +27,29 @@
     <script src='../folder-tree.js' type='text/javascript' charset='utf-8'></script>
     <link rel='stylesheet' href='../folder-tree.css' type='text/css' media='screen' />
 
-    <style>
-      body {
-        background-color: #e6e6e6;
-        text-align: center;
-        padding-top: 100px;
-      }
-      
-      #folder_tree > ul {
-        min-width: 300px;
-        min-height: 500px;
-      }
-    </style>
+    <link rel='stylesheet' href='demo.css' type='text/css' media='screen' />
   </head>
   <body>
-    <div id='folder_tree'></div>
+    <div id='instructions'>
+      Usage and documentation:
+      <br/><a href='https://github.com/seanhuber/folder-tree'>https://github.com/seanhuber/folder-tree</a>
+    </div>
+
+    <div id='demo_tree'></div>
+
+    <div id='demo_pane'>
+      Click a file in the left pane.
+    </div>
 
     <script>
-      $('#folder_tree').folderTree({
+      $('#demo_tree').folderTree({
         root: 'Root Folder',
         contents_url: 'http://seanhuber.com/demo/folder-tree',
         file_click: function(event, data) {
           console.log('File path: ', data.path);
+          $('#demo_pane').html("You've selected:<p>"+data.path+'</p>');
         }
       });
-    </script>
     </script>
   </body>
 </html>

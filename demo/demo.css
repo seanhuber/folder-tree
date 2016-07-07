@@ -1,0 +1,41 @@
+body {
+  font-family: 'Lato', sans-serif !important;
+  background-color: #e6e6e6;
+  text-align: center;
+}
+
+#instructions {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+#demo_tree > ul,
+#demo_pane {
+  min-width: 300px;
+  min-height: 500px;
+}
+
+#demo_tree {
+  margin-right: 50px;
+}
+
+#demo_tree,
+#demo_pane {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 50px;
+}
+
+#demo_pane {
+  background-color: white;
+  position: relative;
+  bottom: -10px;
+  border-radius: 5px;
+  padding-top: 200px;
+  font-size: 18px;
+}
+
+#demo_pane p {
+  font-weight: bold;
+  margin-top: 20px;
+}
