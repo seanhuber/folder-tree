@@ -1,0 +1,49 @@
+.folder-list ul {
+  padding-left: 20px;
+}
+
+.folder-list .folder:not(.expanded) > ul {
+  display: none;
+}
+
+.folder-list li {
+  list-style-type: none;
+  margin: 1px 0;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.folder-list .basename:hover {
+  text-decoration: underline;
+}
+
+.folder-list .loading > li {
+  color: gray;
+}
+
+.folder-list li:before {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  color: #1a8dc7; /* light blue */
+  margin-right: 5px;
+}
+
+.folder-list li.folder:not(.expanded):before {
+  content: "\e117"; /* glyphicon-folder-close */
+}
+
+.folder-list li.folder.expanded:before {
+  content: "\e118"; /* glyphicon-folder-open */
+  margin-right: 10px;
+}
+
+.folder-list li.file:before {
+  content: "\e022"; /* glyphicon-file */
+  color: #cecece; /* light gray */
+}
