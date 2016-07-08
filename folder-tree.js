@@ -1,3 +1,4 @@
+// https://github.com/seanhuber/folder-tree
 (function($) {
   $.widget( 'sh.folderTree' , {
     options: {
