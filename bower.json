@@ -1,0 +1,30 @@
+{
+  "name": "folder-tree",
+  "main": "folder-tree.js",
+  "homepage": "https://github.com/seanhuber/folder-tree",
+  "authors": [
+    "Sean Huber <seanhuber@seanhuber.com>"
+  ],
+  "description": "folder-tree is a no-thrills jQuery widget that renders an interactive tree of directories and their contents",
+  "keywords": [
+    "folder",
+    "tree",
+    "directory",
+    "jquery",
+    "widget",
+    "bootstrap",
+    "ajax"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0",
+    "jquery-ui": ">= 1.11.4"
+  }
+}
