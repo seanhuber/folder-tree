@@ -1,7 +1,8 @@
 // https://github.com/seanhuber/folder-tree
 (function($) {
-  $.widget( 'sh.folderTree' , {
+  $.widget( 'sh.folderTree', {
     options: {
+      api_token: '', // optional token to be set as an authorization header when making ajax requests to contents_url
       root: 'root_folder',
       contents_url: 'folder contents url',
       file_click: function(event, data) {}
@@ -39,9 +40,18 @@
 
     _refreshFolder: function(path) {
       var that = this;
-      $.get(that.options.contents_url, $.param({path: path}), function(data) {
-        that._updateFolderContents(path, data);
-      });
+      var ajax_opts = {
+        data: {path: path},
+        complete: function( jqXHR, textStatus ) {
+          that._updateFolderContents(path, jqXHR.responseJSON);
+        }
+      }
+      if (that.options.api_token != '') {
+        ajax_opts.beforeSend = function (xhr) {
+          xhr.setRequestHeader('Authorization', 'Token token='+that.options.api_token);
+        }
+      }
+      $.ajax(that.options.contents_url, ajax_opts);
     },
 
     _updateFolderContents: function(path, f_contents) {

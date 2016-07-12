@@ -85,6 +85,9 @@ Basic Usage
      */
     contents_url: 'http://seanhuber.com/demo/folder-tree',
 
+    // Optional - if your api endpoint, contents_url, is secured via Authorization header check, add the token here
+    api_token: 'my_secret_token',
+
     /*
      * Callback function (also a jQuery widget event) for when a file is clicked.
      *
