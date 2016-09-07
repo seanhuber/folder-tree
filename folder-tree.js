@@ -5,7 +5,8 @@
       api_token: '', // optional token to be set as an authorization header when making ajax requests to contents_url
       root: 'root_folder',
       contents_url: 'folder contents url',
-      file_click: function(event, data) {}
+      file_click: function(event, data) {},
+      folder_shown: function(event, data) {},
     },
 
     _addClickHandler: function() {
@@ -18,8 +19,13 @@
           that._trigger('file_click', event, {path: $li.data('path')});
         } else if ($li.hasClass('folder')) {
           $li.toggleClass('expanded');
-          if ($li.hasClass('expanded') && $li.children('ul').hasClass('loading'))
-            that._refreshFolder($li.data('path'));
+          if ($li.hasClass('expanded')) {
+            if ($li.children('ul').hasClass('loading')) {
+              that._refreshFolder($li.data('path'));
+            } else {
+              that._trigger('folder_shown', null, {path: $li.data('path')});
+            }
+          }
         }
       });
     },
@@ -64,6 +70,7 @@
       if (html == '') html = "<li class='no-contents'>No contents.</li>";
       $ul.removeClass('loading');
       $ul.html(html);
+      that._trigger('folder_shown', null, {path: path});
     }
   });
 })(jQuery);

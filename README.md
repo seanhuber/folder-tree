@@ -99,7 +99,19 @@ Basic Usage
      */
     file_click: function(event, data) {
       alert('You clicked the file with path: '+data.path);
-    }
+    },
+
+    /*
+     * Callback function (also a jQuery widget event) for when is expanded.
+     *
+     * The second argument of this function is a javascript object with one property: path
+     * 'path' will be a string representing the path clicked, e.g.,
+     *
+     *   root_folder/second_folder/
+     */
+    folder_shown: function(event, data) {
+      alert('Folder expanded with path path: '+data.path);
+    },
   });
 </script>
 ```
