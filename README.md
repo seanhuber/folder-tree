@@ -102,6 +102,19 @@ Basic Usage
     },
 
     /*
+     * Callback function (also a jQuery widget event) for when a folder is clicked.
+     *
+     * The function takes 2 arguments, first of which is the original click event.
+     * The second argument is a javascript object with one property: path
+     * 'path' will be a string representing the path clicked, e.g.,
+     *
+     *   root_folder/second_folder/subfolder
+     */
+    folder_click: function(event, data) {
+      alert('You clicked the folder with path: '+data.path);
+    },
+
+    /*
      * Callback function (also a jQuery widget event) for when is expanded.
      *
      * The second argument of this function is a javascript object with one property: path

@@ -26,6 +26,7 @@
               that._trigger('folder_shown', null, {path: $li.data('path')});
             }
           }
+          that._trigger('folder_click', event, {path: $li.data('path')});
         }
       });
     },
